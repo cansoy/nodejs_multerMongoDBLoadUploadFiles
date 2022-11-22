@@ -1,0 +1,20 @@
+You'll need to convert the buffer to a base64 string. Here's an example for a PNG image. 
+I am not clear on where your image is stored and format it's in however.
+This example reads the image as a file. May need to adjust things based on your data source.
+
+////////////////////////////////////////////////////////////////////
+const express = require('express')
+const app = express()
+const fs = require('fs')
+app.set('view engine', 'ejs')
+
+app.get('/', function(req, res) {
+  const data = fs.readFileSync('./image.png')
+  res.render('page', {
+    image: data.toString('base64')
+  })
+})
+const server = app.listen(2000)
+////////////////////////////////////////////////////////////////////
+views/page.ejs
+<img src="data:image/png;base64,<%= image %>" />

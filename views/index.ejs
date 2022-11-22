@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br><br>
+        <p>Number Of Collection in DB :: <%= collectionCount %> </p>
+    <br><br>
+    <form action="/posted" method="post" enctype="multipart/form-data">
+        <br>
+        <hr>
+        <div>
+            Name:: <input type="text" name="name" id="name">
+        </div>
+        <br>
+        <hr>
+        <div>
+            File:: <input type="file" name="file" id="file">
+        </div>
+        <br>
+        <hr>
+        <div>
+            <input type="submit" name="submit" id="submit">
+        </div>
+
+    </form>
+    <br><br>
+    <hr>
+    <a href="/showdb">Show All Files</a>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    <a href="/">Back Home</a><br>
+    <br><br>
+    <ul>
+        <% files.forEach(item => { %>
+
+            <% if (item.fileExt== ".png" || item.fileExt== ".jpg" ) { %>
+                <li><%= item.fileName  %> </li>
+                <img src="<%= 'data:image/jpeg;base64, ' + item.src.toString('base64')%>" alt="" width="100" height="100" >
+                <a href="/showdb/<%= item.fileName %>">Download</a>
+            <% } %>
+
+            <% if (item.fileExt== ".mp4") { %>
+                <li><%= item.fileName  %></li>
+                <video src="./<%= item.fileName %>.mp4" width="300" height="300" controls></video>
+            <% } %>
+
+        <% }) %>
+    </ul>
+</body>
+</html>
